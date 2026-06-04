@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Status Share</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+        "firebase/database": "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- Him Section -->
+        <div id="him-section" class="status-card him">
+            <div class="content">
+                <h1 class="label">HIM</h1>
+                <div id="him-display" class="status-text">Loading...</div>
+                <div id="him-seen" class="seen-indicator" title="Mark as seen"></div>
+                <div class="status-meta">
+                    <span id="him-time" class="time-stamp"></span>
+                    <span id="him-relative" class="relative-time"></span>
+                </div>
+                <button id="edit-him" class="edit-btn">Update Status</button>
+            </div>
+        </div>
+
+        <!-- Her Section -->
+        <div id="her-section" class="status-card her">
+            <div class="content">
+                <h1 class="label">HER</h1>
+                <div id="her-display" class="status-text">Loading...</div>
+                <div id="her-seen" class="seen-indicator" title="Mark as seen"></div>
+                <div class="status-meta">
+                    <span id="her-time" class="time-stamp"></span>
+                    <span id="her-relative" class="relative-time"></span>
+                </div>
+                <button id="edit-her" class="edit-btn">Update Status</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for password/input -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Enter Password</h2>
+            <div id="password-area">
+                <input type="password" id="pass-input" placeholder="Enter OTP">
+            </div>
+            <div id="status-area" class="hidden">
+                <textarea id="status-input" placeholder="What's on your mind?" maxlength="500"></textarea>
+                <div id="char-count">0 / 500</div>
+            </div>
+            <div class="modal-actions">
+                <button id="cancel-btn">Cancel</button>
+                <button id="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
