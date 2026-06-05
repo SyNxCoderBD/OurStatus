@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Status Share</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+        "firebase/database": "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- Him Section -->
+        <div id="him-section" class="status-card him">
+            <div class="content">
+                <h1 class="label">HIM</h1>
+                <div id="him-display" class="status-text">Loading...</div>
+                <div id="him-seen" class="seen-indicator" title="Mark as seen"></div>
+                <div id="him-seen-time" class="seen-time hidden"></div>
+                <div class="status-meta">
+                    <span id="him-time" class="time-stamp"></span>
+                    <span id="him-relative" class="relative-time"></span>
+                </div>
+                <div class="deck-actions">
+                    <button id="edit-him" class="edit-btn">Update Status</button>
+                    <button id="add-him-highlight" class="icon-btn hidden" title="Add to Highlights">✦</button>
+                    <button id="view-him-highlights" class="icon-btn" title="View Highlights">≣</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Central Actions -->
+        <div class="center-actions">
+            <button id="view-all-highlights" class="action-center-btn" title="All Highlights">✥</button>
+            <button id="open-chat-btn" class="action-center-btn" title="Open Chat">⌗</button>
+        </div>
+
+        <!-- Her Section -->
+        <div id="her-section" class="status-card her">
+            <div class="content">
+                <h1 class="label">HER</h1>
+                <div id="her-display" class="status-text">Loading...</div>
+                <div id="her-seen" class="seen-indicator" title="Mark as seen"></div>
+                <div id="her-seen-time" class="seen-time hidden"></div>
+                <div class="status-meta">
+                    <span id="her-time" class="time-stamp"></span>
+                    <span id="her-relative" class="relative-time"></span>
+                </div>
+                <div class="deck-actions">
+                    <button id="edit-her" class="edit-btn">Update Status</button>
+                    <button id="add-her-highlight" class="icon-btn hidden" title="Add to Highlights">✦</button>
+                    <button id="view-her-highlights" class="icon-btn" title="View Highlights">≣</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div id="chat-modal" class="modal hidden">
+        <div class="modal-content chat-container">
+            <div class="chat-header">
+                <h2>Chat Room</h2>
+                <div id="typing-indicator" class="typing-indicator"></div>
+                <button id="close-chat-btn" class="close-x">✕</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages go here -->
+            </div>
+            <div class="chat-input-area">
+                <div id="editing-banner" class="editing-banner hidden">
+                    Editing message... <button id="cancel-edit">Cancel</button>
+                </div>
+                <div class="input-row">
+                    <textarea id="chat-input" placeholder="Type a message..." rows="1"></textarea>
+                    <button id="send-chat-btn" class="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Highlights Modal -->
+    <div id="highlights-modal" class="modal hidden">
+        <div class="modal-content wide">
+            <h2 id="highlights-title">Highlights</h2>
+            <div id="highlights-list">
+                <!-- Highlights will be injected here -->
+            </div>
+            <div class="modal-actions">
+                <button id="close-highlights-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="confirm-title">Save Highlight?</h2>
+            <p id="confirm-message">Do you want to save your current status as highlights?</p>
+            <div class="modal-actions">
+                <button id="confirm-no">No</button>
+                <button id="confirm-yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for password/input -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Enter Password</h2>
+            <div id="password-area">
+                <input type="password" id="pass-input" placeholder="Enter OTP">
+            </div>
+            <div id="status-area" class="hidden">
+                <textarea id="status-input" placeholder="What's on your mind?" maxlength="500"></textarea>
+                <div id="char-count">0 / 500</div>
+            </div>
+            <div class="modal-actions">
+                <button id="cancel-btn">Cancel</button>
+                <button id="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
